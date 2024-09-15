@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="user-service" />
         <module name="order-service" />
+        <module name="service-registry" />
         <module name="catalog-service" />
       </profile>
     </annotationProcessing>
@@ -16,6 +17,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="catalog-service" options="-parameters" />
       <module name="order-service" options="-parameters" />
+      <module name="service-registry" options="-parameters" />
       <module name="user-service" options="-parameters" />
     </option>
   </component>
