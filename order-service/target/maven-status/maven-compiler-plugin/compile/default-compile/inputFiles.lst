@@ -1,0 +1,14 @@
+/Users/ravikumar/Downloads/spring-micro-services/order-service/src/main/java/com/example/order_service/OrderDetails.java
+/Users/ravikumar/Downloads/spring-micro-services/order-service/src/main/java/com/example/order_service/OrderServiceApplication.java
+/Users/ravikumar/Downloads/spring-micro-services/order-service/src/main/java/com/example/order_service/clients/userservice/UserClient.java
+/Users/ravikumar/Downloads/spring-micro-services/order-service/src/main/java/com/example/order_service/clients/userservice/UserClientImpl.java
+/Users/ravikumar/Downloads/spring-micro-services/order-service/src/main/java/com/example/order_service/clients/userservice/UserRestClient.java
+/Users/ravikumar/Downloads/spring-micro-services/order-service/src/main/java/com/example/order_service/config/UserServiceConfig.java
+/Users/ravikumar/Downloads/spring-micro-services/order-service/src/main/java/com/example/order_service/controller/OrderController.java
+/Users/ravikumar/Downloads/spring-micro-services/order-service/src/main/java/com/example/order_service/di/RestTemplateConfig.java
+/Users/ravikumar/Downloads/spring-micro-services/order-service/src/main/java/com/example/order_service/dto/User.java
+/Users/ravikumar/Downloads/spring-micro-services/order-service/src/main/java/com/example/order_service/entity/BaseEntity.java
+/Users/ravikumar/Downloads/spring-micro-services/order-service/src/main/java/com/example/order_service/entity/Order.java
+/Users/ravikumar/Downloads/spring-micro-services/order-service/src/main/java/com/example/order_service/enums/OrderStatus.java
+/Users/ravikumar/Downloads/spring-micro-services/order-service/src/main/java/com/example/order_service/repo/OrderRepository.java
+/Users/ravikumar/Downloads/spring-micro-services/order-service/src/main/java/com/example/order_service/service/OrderService.java

@@ -42,4 +42,8 @@ public class ProductService {
         Product product = productRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Product not found for this id :: " + id));
         productRepository.delete(product);
     }
+
+    public Product getProductByExternalId(String id) {
+        return productRepository.findProductByExternalId(id).orElseThrow(() -> new ResourceNotFoundException("Product not found for this id :: " + id));
+    }
 }

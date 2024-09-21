@@ -17,6 +17,14 @@ spring:
       properties:
         hibernate:
           dialect: org.hibernate.dialect.MySQL8Dialect
+  cloud:
+    config:
+      name: zepkin
+      discovery:
+        service-id: config
+        enabled: true
+        username: configUser
+        password: configPassword
 
 server:
   port: 8002
@@ -24,3 +32,10 @@ server:
   servlet:
     context-path: /catalog-service
 
+management:
+  tracing:
+    sampling:
+      probability: 1.0 # send every request to zipkin
+  zipkin:
+    tracing:
+      endpoint: http://localhost:9411/api/v2/spans

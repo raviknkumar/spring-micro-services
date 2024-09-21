@@ -15,16 +15,25 @@ import com.example.catalog_service.entity.Product;
 import com.example.catalog_service.exception.ResourceNotFoundException;
 import com.example.catalog_service.service.ProductService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @RequestMapping ("/products")
 @RequiredArgsConstructor (onConstructor_ = @Autowired)
+@Slf4j
 public class ProductController {
     private final ProductService productService;
 
     @GetMapping
     public List<Product> getAllProducts() {
         return productService.getAllProducts();
+    }
+
+    @GetMapping ("/external-id/{id}")
+    public ResponseEntity<Product> getProductById(@PathVariable (value = "id") String id) {
+        log.info("Fetching product with id {}", id);
+        Product product = productService.getProductByExternalId(id);
+        return ResponseEntity.ok().body(product);
     }
 
     @GetMapping ("/{id}")

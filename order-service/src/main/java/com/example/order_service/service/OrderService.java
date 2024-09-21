@@ -5,8 +5,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.order_service.OrderDetails;
-import com.example.order_service.clients.userservice.UserClient;
-import com.example.order_service.clients.userservice.UserClientImpl;
+import com.example.order_service.clients.catalogservice.CatalogClient;
+import com.example.order_service.clients.domain.Product;
 import com.example.order_service.clients.userservice.UserRestClient;
 import com.example.order_service.dto.User;
 import com.example.order_service.entity.Order;
@@ -19,6 +19,7 @@ public class OrderService {
 
     private final OrderRepository orderRepository;
     private final UserRestClient userClient;
+    private final CatalogClient catalogClient;
 
     public List<Order> getAllOrders() {
         return orderRepository.findAll();
@@ -49,8 +50,9 @@ public class OrderService {
         final Order order = orderRepository.findById(id).orElseThrow(() -> new RuntimeException("Order not found"));
         String userId = order.getUserId();
         User user = userClient.getUser(userId);
+        Product product = catalogClient.getProduct(order.getProductId());
         return OrderDetails.builder().userId(userId).userName(user.getName()).address(user.getAddress()).orderedAt(order.getCreatedAt())
-                           .productId(order.getProductId()).orderId(order.getId().toString()).status(order.getStatus()).quantity(order.getQuantity())
-                           .finalPrice(order.getFinalPrice()).build();
+                           .productName(product.getName()).productId(order.getProductId()).orderId(order.getId().toString()).status(order.getStatus())
+                           .quantity(order.getQuantity()).finalPrice(order.getFinalPrice()).build();
     }
 }
