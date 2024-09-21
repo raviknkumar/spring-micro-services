@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.order_service.OrderDetails;
 import com.example.order_service.clients.userservice.UserClient;
+import com.example.order_service.clients.userservice.UserClientImpl;
+import com.example.order_service.clients.userservice.UserRestClient;
 import com.example.order_service.dto.User;
 import com.example.order_service.entity.Order;
 import com.example.order_service.repo.OrderRepository;
@@ -16,7 +18,7 @@ import lombok.RequiredArgsConstructor;
 public class OrderService {
 
     private final OrderRepository orderRepository;
-    private final UserClient userClient;
+    private final UserRestClient userClient;
 
     public List<Order> getAllOrders() {
         return orderRepository.findAll();

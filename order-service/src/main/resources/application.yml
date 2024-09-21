@@ -36,3 +36,10 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://localhost:8761/eureka
+
+
+user-service:
+  name: USER-SERVICE
+  endpoints:
+    get-user:
+      url: /user-service/users/{userId}
