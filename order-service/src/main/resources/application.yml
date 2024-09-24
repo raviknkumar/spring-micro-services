@@ -6,11 +6,9 @@ spring:
     database-platform: org.hibernate.dialect.MySQL8Dialect
     generate-ddl: true
     show-sql: true
-
     hibernate:
 #       ddl-auto: create
       ddl-auto: none
-
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
@@ -21,21 +19,21 @@ spring:
     password: root1234
     driver-class-name: com.mysql.cj.jdbc.Driver
 
+  config:
+    # import: optional:configserver:http://localhost:8010
+    import: configserver:http://localhost:8010
+
+  cloud:
+    config:
+      name: ${spring.application.name}, default, application
+
 
 server:
   port: 8001
   servlet:
     context-path: /order-service
 
-eureka:
-  instance:
-    prefer-ip-address: true
 
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone: http://localhost:8761/eureka
 
 user-service:
   name: USER-SERVICE
