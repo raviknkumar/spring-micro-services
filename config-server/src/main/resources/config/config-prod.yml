@@ -1,0 +1,4 @@
+config:
+  server:
+    enabled: true
+    env: production
