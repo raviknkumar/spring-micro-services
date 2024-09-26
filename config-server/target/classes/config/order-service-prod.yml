@@ -1,0 +1,8 @@
+server:
+  port: 8002
+  servlet:
+    context-path: /order-service-prod
+
+appConfig:
+  greet:
+    message: Hello from order-service | native

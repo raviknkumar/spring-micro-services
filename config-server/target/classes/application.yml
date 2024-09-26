@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: config-server
+
+#  cloud:
+#    config:
+#      server:
+#        git:
+#          uri: https://github.com/raviknkumar/config-server-ms
+#          clone-on-start: true
+
+  profiles:
+     active: native # default git, with native it will check for configs inside the repository
+
+server:
+  port: 8010
