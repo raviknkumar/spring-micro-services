@@ -2,9 +2,6 @@ spring:
   application:
     name: order-service
 
-  profiles:
-    active: prod
-
   jpa:
     database-platform: org.hibernate.dialect.MySQL8Dialect
     generate-ddl: true
@@ -25,16 +22,44 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   config:
-    # import: optional:configserver:http://localhost:8010
-    import: configserver:http://localhost:8010
+     import: optional:configserver:http://localhost:8010
 
   cloud:
     config:
       name: ${spring.application.name}-${spring.profiles.active}, default, application
 
+server:
+  port: 8001
+  servlet:
+    context-path: /order-service
+
+eureka:
+  instance:
+    prefer-ip-address: true
+
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
 
 user-service:
   name: USER-SERVICE
+  domain-url: http://USER-SERVICE/user-service
   endpoints:
     get-user:
       url: /user-service/users/{userId}
+
+catalog-service:
+  name: CATALOG-SERVICE
+
+# zipkin
+management:
+  tracing:
+    sampling:
+      probability: 1.0 # send every request to zipkin
+
+
+appConfig:
+  greet:
+    message: Hello
